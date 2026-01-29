@@ -5,110 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BB Oto Kurtarma | Bursa Gemlik</title>
   <meta name="description" content="BB Oto Kurtarma Bursa Gemlik ve çevresinde 7/24 oto kurtarma ve yol yardım hizmeti sunar." />
- <style>
-  html, body {
-    height: 100%;
-  }
 
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: url("arkaplan.png") no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-  }
+  <style>
+    :root{
+      --dark: #111;
+      --dark2:#222;
+      --green:#25d366;
+      --blue:#007bff;
+      --overlay: rgba(0,0,0,.58);
+      --card: rgba(0,0,0,.55);
+      --text: #fff;
+    }
 
-  header {
-    background: #222;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
+    html, body { height: 100%; }
 
-  header h1 { margin: 0; font-size: 32px; }
-  header p { margin: 5px 0; }
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
 
-  .container { max-width: 1100px; margin: auto; padding: 20px; }
+      /* ARKA PLAN */
+      background-image: url("arkaplan.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
 
-  .hero {
-    background: rgba(0,0,0,0.55);
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 8px;
-  }
+    /* Yazıların okunması için hafif karartma */
+    body::before{
+      content:"";
+      position: fixed;
+      inset:0;
+      background: var(--overlay);
+      z-index:-1;
+    }
 
-  .hero h2 { font-size: 28px; margin-bottom: 10px; }
-  .hero p { font-size: 18px; }
+    header{
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(2px);
+      text-align:center;
+      padding: 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    header h1{ margin:0; font-size: 34px; letter-spacing: .5px; }
+    header p{ margin: 6px 0 0; opacity:.95; }
 
-  .buttons a {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 25px;
-    background: #25d366;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-  }
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 14px 30px;
+    }
 
-  .buttons a.call { background: #007bff; }
+    .hero{
+      margin-top: 16px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 26px 16px;
+      text-align:center;
+    }
+    .hero h2{ margin:0 0 10px; font-size: 28px; }
+    .hero p{ margin:0; font-size: 18px; opacity:.95; }
 
-  .services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-  }
+    .buttons{
+      margin-top: 16px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .buttons a{
+      display:inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.2px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .buttons a.whatsapp{ background: var(--green); }
+    .buttons a.call{ background: var(--blue); }
 
-  .card {
-    background: rgba(0,0,0,0.55);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
+    .services{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .card h3{ margin:0 0 8px; font-size: 18px; }
+    .card p{ margin:0; opacity:.95; line-height: 1.5; }
 
-  footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-  }
-</style>
-<header>
-  <h1>BB OTO KURTARMA</h1>
-  <p>Bursa / Gemlik – 7/24 Yol Yardım</p>
-</header>
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      padding: 14px 10px;
+      background: rgba(0,0,0,.65);
+      border-top: 1px solid rgba(255,255,255,.12);
+      opacity:.95;
+    }
 
-<div class="container">
-  <section class="hero">
-    <h2>Hızlı, Güvenilir Oto Kurtarma</h2>
-    <p>Arıza, kaza veya yolda kalma durumlarında tek telefonla yanınızdayız.</p>
-    <div class="buttons">
-      <a href="https://wa.me/905384416116" target="_blank">WhatsApp ile Yaz</a>
-      <a href="tel:+905384416116" class="call">Hemen Ara</a>
-    </div>
-  </section>
+    /* Mobilde yazılar daha iyi */
+    @media (max-width: 480px){
+      header h1{ font-size: 28px; }
+      .hero h2{ font-size: 24px; }
+      .buttons a{ width: 90%; text-align:center; }
+    }
+  </style>
+</head>
 
-  <section class="services">
-    <div class="card">
-      <h3>🚗 Oto Kurtarma</h3>
-      <p>Binek araçlar için güvenli ve hızlı çekici hizmeti.</p>
-    </div>
-    <div class="card">
-      <h3>🛣️ Yol Yardım</h3>
-      <p>Akü takviye, lastik değişimi ve acil destek.</p>
-    </div>
-    <div class="card">
-      <h3>⏰ 7/24 Hizmet</h3>
-      <p>Gece gündüz, hafta sonu fark etmez.</p>
-    </div>
-  </section>
-</div>
+<body>
+  <header>
+    <h1>BB OTO KURTARMA</h1>
+    <p>Bursa / Gemlik - 7/24 Yol Yardım</p>
+  </header>
 
-<footer>
-  <p>© 2026 BB Oto Kurtarma | Bursa Gemlik</p>
-</footer>
+  <div class="container">
+    <section class="hero">
+      <h2>Hızlı, Güvenilir Oto Kurtarma</h2>
+      <p>7/24 hizmet • Şehir içi/şehir dışı • Uygun fiyat</p>
 
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/905384416116" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+905384416116">Ara</a>
+      </div>
+    </section>
+
+    <section class="services" aria-label="Hizmetler">
+      <div class="card">
+        <h3>🚗 Oto Kurtarma</h3>
+        <p>Arıza, kaza, çekici hizmeti.</p>
+      </div>
+      <div class="card">
+        <h3>🛣️ Yol Yardım</h3>
+        <p>Akü takviye, lastik değişimi, yakıt desteği.</p>
+      </div>
+      <div class="card">
+        <h3>🕒 7/24 Hizmet</h3>
+        <p>Gece gündüz, hafta sonu dahil.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 BB Oto Kurtarma | Bursa Gemlik</p>
+    </footer>
+  </div>
 </body>
 </html>
